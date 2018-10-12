@@ -1,7 +1,7 @@
 @import '../core/theming/theming';
 
 
-@mixin _mc-button-primary-color($palette, $second, $is-dark-theme) {
+@mixin _mc-button-primary-color($palette, $second, $is-dark-theme, $foreground) {
     $hover-lighten: 5%;
 
     color: mc-contrast($palette, 500);
@@ -53,9 +53,9 @@
     &[disabled] {
 
         @if $is-dark-theme {
-            color: mc-color($second, 60);
-            border-color: mc-color($palette, 800);
-            background-color: mc-color($palette, 800);
+            color: map-get($foreground, disabled-text);
+            border-color: transparent;
+            background-color: mc-color($palette, 800, 0.5);
         } @else {
             color: mc-color($palette, 200);
             border-color: mc-color($palette, 400);
@@ -151,7 +151,7 @@
     $background: map-get($theme, background);
 
     &.mc-primary {
-        @include _mc-button-primary-color($primary, $second, $is-dark-theme);
+        @include _mc-button-primary-color($primary, $second, $is-dark-theme, $foreground);
     }
 
     &.mc-second {
