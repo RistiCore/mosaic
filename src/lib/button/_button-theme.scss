@@ -40,37 +40,43 @@
     }
 }
 
-@mixin _mc-button-second-color($palette) {
+@mixin _mc-button-second-color($palette, $foreground, $background) {
     $hover-darken: 5%;
 
-    color: mc-contrast($palette, 500);
+    color: map-get($foreground, fg-default-text);
 
-    border-color: mc-color($palette, 300);
-    background-image: linear-gradient(to bottom, mc-color($palette, 40, 1), mc-color($palette, 100));
+    border-color: map-get($background, bg-button-border);
+    background-image: linear-gradient(to bottom, lighten(map-get($background, bg-button), 20),  map-get($background, bg-button));
 
     &:hover,
     &.mc-hover {
         background-image: linear-gradient(
-            to bottom, darken(mc-color($palette, 40), $hover-darken), darken(mc-color($palette, 100), $hover-darken)
+                to bottom,
+                darken(lighten(map-get($background, bg-button), 20), $hover-darken),
+                darken(map-get($background, bg-button), $hover-darken)
         );
     }
 
     &:active,
     &.mc-active {
-        background-image: linear-gradient(to bottom, mc-color($palette, 200), mc-color($palette, 100));
+        background-image: linear-gradient(
+                    to bottom,
+                    darken(map-get($background, bg-button), 10),
+                    darken(map-get($background, bg-button), 10)
+        );
 
         &:hover,
         &.mc-hover {
             background-image: linear-gradient(
-                to bottom,
-                darken(mc-color($palette, 200), $hover-darken),
-                darken(mc-color($palette, 100), $hover-darken)
+                    to bottom,
+                    darken(map-get($background, bg-button), 10),
+                    darken(map-get($background, bg-button), 10)
             );
         }
     }
 
     &[disabled] {
-        color: mc-color($palette, 200);
+        color: map-get($foreground, fg-disabled-text);
 
         border-color: mc-color($palette, 200);
         background-image: linear-gradient(to bottom, mc-color($palette, 40, 1), mc-color($palette, 60));
@@ -129,7 +135,7 @@
     }
 
     &.mc-second {
-        @include _mc-button-second-color($second);
+        @include _mc-button-second-color($second, $foreground, $background);
     }
 
     &.mc-error {

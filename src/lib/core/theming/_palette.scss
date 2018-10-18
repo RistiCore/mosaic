@@ -13,6 +13,9 @@ $white-6-opacity:  rgba(white, 0.06);
 
 $dark-disabled-text: rgba(black, 0.5);
 
+$dark-text-default:  #4d4d4d; //FIXME: maybe must not be hardcoded
+$light-text-default: #f0f0f0; //FIXME: maybe must not be hardcoded
+
 $mc-blue: (
     40: #f5fafd,
     60: #ebf4fb,
@@ -28,19 +31,19 @@ $mc-blue: (
     A100: rgba(0, 153, 255, 0.15),
     A200: rgba(0, 153, 255, 0.3),
     contrast: (
-        40: $black-87-opacity,
-        60: $black-87-opacity,
-        100: $black-87-opacity,
-        200: $black-87-opacity,
-        300: $black-87-opacity,
-        400: $black-87-opacity,
-        500: white,
-        560: white,
-        600: white,
-        700: white,
-        800: $white-87-opacity,
-        A100: $black-87-opacity,
-        A200: white
+        40: $dark-text-default,
+        60: $dark-text-default,
+        100: $dark-text-default,
+        200: $dark-text-default,
+        300: $dark-text-default,
+        400: $dark-text-default,
+        500: $light-text-default,
+        560: $light-text-default,
+        600: $light-text-default,
+        700: $light-text-default,
+        800: $light-text-default,
+        A100: $dark-text-default,
+        A200: $light-text-default,
     )
 );
 
@@ -58,18 +61,18 @@ $mc-green: (
     800: #163f07,
     A100: rgba(68, 255, 0, 0.15),
     contrast: (
-        40: $black-87-opacity,
-        60: $black-87-opacity,
-        100: $black-87-opacity,
-        200: $black-87-opacity,
-        300: $black-87-opacity,
-        400: $black-87-opacity,
-        500: $black-87-opacity,
-        560: white,
-        600: white,
-        700: white,
-        800: $white-87-opacity,
-        A100: $black-87-opacity
+        40: $dark-text-default,
+        60: $dark-text-default,
+        100: $dark-text-default,
+        200: $dark-text-default,
+        300: $dark-text-default,
+        400: $dark-text-default,
+        500: $light-text-default,
+        560: $light-text-default,
+        600: $light-text-default,
+        700: $light-text-default,
+        800: $light-text-default,
+        A100: $dark-text-default,
     )
 );
 
@@ -87,17 +90,18 @@ $mc-red: (
     800: #541208,
     A100: rgba(224, 79, 56, 0.15),
     contrast: (
-        40: $black-87-opacity,
-        60: $black-87-opacity,
-        100: $black-87-opacity,
-        200: $black-87-opacity,
-        300: $black-87-opacity,
-        400: $black-87-opacity,
-        500: white,
-        600: white,
-        700: white,
-        800: $white-87-opacity,
-        A100: $black-87-opacity
+        40: $dark-text-default,
+        60: $dark-text-default,
+        100: $dark-text-default,
+        200: $dark-text-default,
+        300: $dark-text-default,
+        400: $dark-text-default,
+        500: $light-text-default,
+        560: $light-text-default,
+        600: $light-text-default,
+        700: $light-text-default,
+        800: $light-text-default,
+        A100: $dark-text-default,
     )
 );
 
@@ -114,16 +118,17 @@ $mc-grey: (
     700: #4d4d4d,
     800: #333333,
     contrast: (
-        40: $black-87-opacity,
-        60: $black-87-opacity,
-        100: $black-87-opacity,
-        200: $black-87-opacity,
-        300: $black-87-opacity,
-        400: $black-87-opacity,
-        500: $black-87-opacity,
-        600: $white-87-opacity,
-        700: $white-87-opacity,
-        800: $white-87-opacity
+        40: $dark-text-default,
+        60: $dark-text-default,
+        100: $dark-text-default,
+        200: $dark-text-default,
+        300: $dark-text-default,
+        400: $dark-text-default,
+        500: $light-text-default,
+        560: $light-text-default,
+        600: $light-text-default,
+        700: $light-text-default,
+        800: $light-text-default,
     )
 );
 
@@ -141,31 +146,38 @@ $mc-yellow: (
     800: #503602,
     A100: rgba(255, 170, 0, 0.15),
     contrast: (
-        40: $black-87-opacity,
-        60: $black-87-opacity,
-        100: $black-87-opacity,
-        200: $black-87-opacity,
-        300: $black-87-opacity,
-        400: $black-87-opacity,
-        500: $black-87-opacity,
-        560: $black-87-opacity,
-        600: $black-87-opacity,
-        700: $black-87-opacity,
-        800: $black-87-opacity,
-        A100: $black-87-opacity
+        40: $dark-text-default,
+        60: $dark-text-default,
+        100: $dark-text-default,
+        200: $dark-text-default,
+        300: $dark-text-default,
+        400: $dark-text-default,
+        500: $light-text-default,
+        560: $light-text-default,
+        600: $light-text-default,
+        700: $light-text-default,
+        800: $light-text-default,
+        A100: $dark-text-default,
     )
 );
 
 // Foreground palette for light themes.
 $mc-light-theme-foreground: (
-    base:              black,
+    base:              black, //скорей всего это fg-default-text
     disabled:          $dark-disabled-text,
     disabled-button:   rgba(black, 0.26),
     disabled-text:     rgba(black, 0.3),
     hint-text:         rgba(black, 0.38),
     icon:              rgba(black, 0.54),
     text:              rgba(black, 0.87),
-    secondary-text:    rgba(black, 0.54),
+    secondary-text:    rgba(black, 0.54), //скорей всего это fg-less-contrast-text
+
+    fg-default-text:         #4d4d4d, //secondary-700
+    fg-less-contrast-text:   #999999, //secondary-400
+    fg-disabled-text:        #b3b3b3, //secondary-300
+
+    fg-default-icon:         #999999, //secondary-400
+    fg-less-contrast-icon:   #cccccc, //secondary-200
 );
 
 // Background palette for light themes.
@@ -175,7 +187,14 @@ $mc-light-theme-background: (
     disabled-button:      $black-12-opacity,
     selected-button:      grey,
     focused-button:       $black-6-opacity,
-    disabled-list-option: #CCC
+    disabled-list-option: #CCC,
+
+    bg-default:           #ffffff,
+    bg-content:           #f0f0f0, //secondary-60
+    bg-dropdowns:         #ffffff,
+
+    bg-button:            #e6e6e6,
+    bg-button-border:     #b3b3b3,
 );
 
 // Foreground palette for dark themes.
@@ -188,6 +207,13 @@ $mc-dark-theme-foreground: (
     icon:              white,
     text:              white,
     secondary-text:    rgba(white, 0.7),
+
+    fg-default-text:         #f0f0f0, //secondary-60
+    fg-less-contrast-text:   #999999, //secondary-400
+    fg-disabled-text:        #999999, //secondary-400
+
+    fg-default-icon:         #f0f0f0, //secondary-60
+    fg-less-contrast-icon:   #999999, //secondary-400
 );
 
 // Background palette for dark themes.
@@ -197,5 +223,12 @@ $mc-dark-theme-background: (
     disabled-button:      $white-12-opacity,
     selected-button:      grey,
     focused-button:       $black-6-opacity,
-    disabled-list-option: #CCC
+    disabled-list-option: #CCC,
+
+    bg-default:           #ffffff,
+    bg-content:           #f0f0f0, //secondary-60
+    bg-dropdowns:         #ffffff,
+
+    bg-button:            #666666, //secondary-600
+    bg-button-border:     #808080, //secondary-500
 );
