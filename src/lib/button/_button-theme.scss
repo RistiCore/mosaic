@@ -4,30 +4,22 @@
     color: mc-contrast($palette, 500);
 
     border-color: mc-color($palette, 600);
-    background:
-        mc-color($palette, 500)
-        linear-gradient(to bottom, mc-color($palette, 500), mc-color($palette, 560));
+    background: mc-color($palette, 500);
 
     &:hover,
     &.mc-hover {
-        background-image: linear-gradient(
-            to bottom,
-            lighten(mc-color($palette, 500), $hover-lighten),
-            lighten(mc-color($palette, 560), $hover-lighten)
-        );
+        background: lighten(mc-color($palette, 500), $hover-lighten);
     }
 
     &:active,
     &.mc-active {
-        background-image: linear-gradient(to bottom, mc-color($palette, 600), mc-color($palette, 560));
+        background: mc-color($palette, 560);
+        box-shadow: inset 2px 2px 3px 0 mc-color($palette, 600);
 
         &:hover,
         &.mc-hover {
-            background-image: linear-gradient(
-                to bottom,
-                lighten(mc-color($palette, 600), $hover-lighten),
-                lighten(mc-color($palette, 560), $hover-lighten)
-            );
+            color: lighten(mc-contrast($palette, 500), $hover-lighten);
+            background: lighten(mc-color($palette, 560), $hover-lighten);
         }
     }
 
@@ -46,10 +38,16 @@
     color: map-get($foreground, fg-default-text);
 
     border-color: map-get($background, bg-button-border);
-    background-image: linear-gradient(to bottom, lighten(map-get($background, bg-button), 20),  map-get($background, bg-button));
+    background-image: linear-gradient(
+                    to bottom,
+                    lighten(map-get($background, bg-button), 20),
+                    map-get($background, bg-button));
 
     &:hover,
     &.mc-hover {
+
+        color: darken(map-get($foreground, fg-default-text), $hover-darken);
+
         background-image: linear-gradient(
                 to bottom,
                 darken(lighten(map-get($background, bg-button), 20), $hover-darken),
@@ -61,25 +59,29 @@
     &.mc-active {
         background-image: linear-gradient(
                     to bottom,
-                    darken(map-get($background, bg-button), 10),
-                    darken(map-get($background, bg-button), 10)
+                    map-get($background, bg-button),
+                    map-get($background, bg-button)
         );
+
+        box-shadow: inset 1px 1px 2px 0 map-get($background, bg-button-border);
 
         &:hover,
         &.mc-hover {
             background-image: linear-gradient(
                     to bottom,
-                    darken(map-get($background, bg-button), 10),
-                    darken(map-get($background, bg-button), 10)
+                    darken(map-get($background, bg-button), $hover-darken),
+                    darken(map-get($background, bg-button), $hover-darken)
             );
+
+            box-shadow: inset 2px 2px 3px 0 map-get($background, bg-button-border);
         }
     }
 
     &[disabled] {
         color: map-get($foreground, fg-disabled-text);
 
-        border-color: mc-color($palette, 200);
-        background-image: linear-gradient(to bottom, mc-color($palette, 40, 1), mc-color($palette, 60));
+        border-color: map-get($background, bg-button-disabled);
+        background-image: linear-gradient(to bottom, map-get($background, bg-button), map-get($background, bg-button));
     }
 }
 
